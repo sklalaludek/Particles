@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var canvas = document.getElementById('board');
-    var c = canvas.getContext('2d');
-    var particles = [],
+    var canvas = document.getElementById('board'),
+          c = canvas.getContext('2d'),
+          particles = [],
           MAX_PARTICLES = 1000,
           MAX_RADIUS = 50,
           mouse = {
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
             y : Math.random() * window.innerHeight,
         };
         // random color
-        var red = Math.floor(Math.random() * 255),
-              green = Math.floor(Math.random() * 255),
-              blue = Math.floor(Math.random() * 255),
+        var red = Math.floor(Math.random() * 250),
+              green = Math.floor(Math.random() * 250),
+              blue = Math.floor(Math.random() * 250),
               // max 1
               alpha = Math.random();
         // max number
@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function draw(p){
-            c.beginPath(); //start draw
+            //start draw
+            c.beginPath();
             c.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false); //circle
             // c.fillStyle = p.color;
             // c.fill();
@@ -80,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function loop(){
-        c.clearRect(0, 0, canvas.width, canvas.height); //clear canvas
+        //to clear canvas
+        c.clearRect(0, 0, canvas.width, canvas.height);
         create();
         particles.forEach(function(p){
             draw(p);
